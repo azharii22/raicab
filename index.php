@@ -16,7 +16,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.php">Beranda</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="registrasi.php">Pendaftaran</a></li>
+                <!-- <li><a href="registrasi.php">Pendaftaran</a></li> -->
             </ul>
             <div class="search-bar">
                 <form action="" method="GET">

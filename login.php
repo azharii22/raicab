@@ -58,9 +58,9 @@
 							Login
 						</button>
 					</div>
-					<div class="container-login100-form-btn mt-3">
+					<!-- <div class="container-login100-form-btn mt-3">
 						<small>Belum memiliki akun? <span><a href="registrasi.php">Daftar</a></span></small>
-					</div>
+					</div> -->
 				</form>
 			</div>
 		</div>
