@@ -5,6 +5,7 @@ require'functions.php';
 if(isset($_POST['btn-simpan'])){
     $nama_lengkap   = $_POST['nama_lengkap'];
     $jenis_kelamin  = $_POST['jenis_kelamin'];
+    $kategori       = $_POST['kategori'];
     $tempat_lahir   = $_POST['tempat_lahir'];
     $tanggal_lahir  = $_POST['tanggal_lahir'];
     $no_hp          = $_POST['no_hp'];
@@ -230,7 +231,7 @@ if(isset($_POST['btn-simpan'])){
         $bukti_bayar = $filePath;
     }
 
-    $query = "INSERT INTO pendaftar (nama_lengkap, jenis_kelamin, tempat_lahir, tanggal_lahir, no_hp, email, foto, vaksin, asuransi, ket_dokter, kta,biodata, bukti_bayar) values ('$nama_lengkap','$jenis_kelamin','$tempat_lahir','$tanggal_lahir', '$no_hp', '$email', '$foto', '$vaksin', '$asuransi', '$ket_dokter', '$kta', '$biodata', '$bukti_bayar')";
+    $query = "INSERT INTO pendaftar (nama_lengkap, jenis_kelamin, kategori, tempat_lahir, tanggal_lahir, no_hp, email, foto, vaksin, asuransi, ket_dokter, kta,biodata, bukti_bayar) values ('$nama_lengkap','$jenis_kelamin','$kategori','$tempat_lahir','$tanggal_lahir', '$no_hp', '$email', '$foto', '$vaksin', '$asuransi', '$ket_dokter', '$kta', '$biodata', '$bukti_bayar')";
 
     // var_dump($query);
     // die;
@@ -289,6 +290,16 @@ require'layout_header.php';
                         <select name="jenis_kelamin" class="form-control">
                             <option value="Laki-laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select name="kategori" class="form-control">
+                            <option disabled>Pilih Kategori</option>
+                            <option value="peserta">Peserta</option>
+                            <option value="pinkon">Pinkon</option>
+                            <option value="staff">Staff Pinkon</option>
+                            <option value="bindam">Bindamping</option>
                         </select>
                     </div>
                 <div class="form-group">
