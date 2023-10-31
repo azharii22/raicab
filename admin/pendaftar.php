@@ -36,6 +36,7 @@ $data = ambildata($conn,$query);
                             <th> Kwarran </th>
                             <th>Nama Lengkap</th>
                             <th>Jenis Kelamin</th>
+                            <th> Kategori</th>
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
                             <th>Nomor Ponsel</th>
@@ -58,6 +59,7 @@ $data = ambildata($conn,$query);
                                     <td><?= $pendaftar['nama_user'] ?></td>
                                     <td><?= $pendaftar['nama_lengkap'] ?></td>
                                     <td><?= $pendaftar['jenis_kelamin'] ?></td>
+                                    <td><?= $pendaftar['kategori'] ?></td>
                                     <td><?= $pendaftar['tempat_lahir'] ?></td>
                                     <td><?= $pendaftar['tanggal_lahir'] ?></td>
                                     <td><?= $pendaftar['no_hp'] ?></td>
