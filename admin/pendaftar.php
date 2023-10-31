@@ -2,9 +2,10 @@
 $title = 'pendaftar';
 require 'functions.php';
 require 'layout_header.php';
-$query = 'SELECT * FROM pendaftar';
+$query = 'SELECT pendaftar.*, user.nama_user FROM pendaftar
+          LEFT JOIN user ON pendaftar.user_id = user.id_user';
 $data = ambildata($conn,$query);
-?> 
+?>
 <div class="container-fluid">
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -20,10 +21,10 @@ $data = ambildata($conn,$query);
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
             <div class="row">
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <a href="pendaftar_tambah.php" class="btn btn-primary box-title"><i class="fa fa-plus fa-fw"></i>Tambah Data</a>
-                </div>
-                <div class="col-md-6 text-right">
+                </div> -->
+                <div class="col-md-12 text-right">
                     <button id="btn-refresh" class="btn btn-primary box-title text-right" title="Refresh Data"><i class="fa fa-refresh" id="ic-refresh"></i></button>
                 </div>
             </div>
@@ -32,6 +33,7 @@ $data = ambildata($conn,$query);
                     <thead class="thead-dark">
                         <tr>
                             <th width="5%">#</th>
+                            <th> Kwarran </th>
                             <th>Nama Lengkap</th>
                             <th>Jenis Kelamin</th>
                             <th>Tempat Lahir</th>
@@ -53,6 +55,7 @@ $data = ambildata($conn,$query);
                             foreach($data as $pendaftar): ?>
                                 <tr>
                                     <td></td>
+                                    <td><?= $pendaftar['nama_user'] ?></td>
                                     <td><?= $pendaftar['nama_lengkap'] ?></td>
                                     <td><?= $pendaftar['jenis_kelamin'] ?></td>
                                     <td><?= $pendaftar['tempat_lahir'] ?></td>

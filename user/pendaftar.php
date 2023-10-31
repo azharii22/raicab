@@ -1,10 +1,22 @@
 <?php
+session_start();
 $title = 'pendaftar';
 require 'functions.php';
 require 'layout_header.php';
-$query = 'SELECT * FROM pendaftar';
+
+// Pastikan pengguna sudah login sebelum mengakses halaman ini
+if (!isset($_SESSION['user_id'])) {
+    // Redirect pengguna ke halaman login jika belum login
+    header('Location: .../index.php'); // Ganti index.php halaman login sesuai kebutuhan Anda
+    exit();
+}
+
+// Dapatkan user_id dari sesi
+$user_id = $_SESSION['user_id'];
+
+$query = "SELECT * FROM pendaftar WHERE user_id = $user_id";
 $data = ambildata($conn,$query);
-?> 
+?>
 <div class="container-fluid">
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -34,6 +46,7 @@ $data = ambildata($conn,$query);
                             <th width="5%">#</th>
                             <th>Nama Lengkap</th>
                             <th>Jenis Kelamin</th>
+                            <th>Kategori</th>
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
                             <th>Nomor Ponsel</th>
@@ -55,6 +68,7 @@ $data = ambildata($conn,$query);
                                     <td></td>
                                     <td><?= $pendaftar['nama_lengkap'] ?></td>
                                     <td><?= $pendaftar['jenis_kelamin'] ?></td>
+                                    <td><?= $pendaftar['kategori'] ?></td>
                                     <td><?= $pendaftar['tempat_lahir'] ?></td>
                                     <td><?= $pendaftar['tanggal_lahir'] ?></td>
                                     <td><?= $pendaftar['no_hp'] ?></td>

@@ -9,6 +9,7 @@ $edit = ambilsatubaris($conn,$queryedit);
 if(isset($_POST['btn-simpan'])){
     $nama_lengkap   = $_POST['nama_lengkap'];
     $jenis_kelamin  = $_POST['jenis_kelamin'];
+    $kategori       = $_POST['kategori'];
     $tempat_lahir   = $_POST['tempat_lahir'];
     $tanggal_lahir  = $_POST['tanggal_lahir'];
     $no_hp          = $_POST['no_hp'];
@@ -32,7 +33,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -45,7 +46,7 @@ if(isset($_POST['btn-simpan'])){
 
         $foto = $filePath;
     }
-    
+
     $vaksin  = $_FILES['vaksin'];
     $namaFile = $_FILES['vaksin']['name'];
     if ($vaksin == '' || $_FILES['vaksin']['tmp_name'] == ''){
@@ -64,7 +65,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -96,7 +97,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -127,7 +128,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -158,7 +159,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -189,7 +190,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -220,7 +221,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -233,7 +234,7 @@ if(isset($_POST['btn-simpan'])){
 
         $bukti_bayar = $filePath;
     }
-    $query = "UPDATE pendaftar SET nama_lengkap = '$nama_lengkap', jenis_kelamin = '$jenis_kelamin', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', no_hp = '$no_hp', email = '$email', foto = '$foto', vaksin = '$vaksin', asuransi = '$asuransi', ket_dokter = '$ket_dokter', kta = '$kta', biodata = '$biodata', bukti_bayar = '$bukti_bayar' WHERE id_pendaftar ='$id_pendaftar'";
+    $query = "UPDATE pendaftar SET nama_lengkap = '$nama_lengkap', jenis_kelamin = '$jenis_kelamin', kategori = '$kategori', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', no_hp = '$no_hp', email = '$email', foto = '$foto', vaksin = '$vaksin', asuransi = '$asuransi', ket_dokter = '$ket_dokter', kta = '$kta', biodata = '$biodata', bukti_bayar = '$bukti_bayar' WHERE id_pendaftar ='$id_pendaftar'";
 
     $execute = bisa($conn,$query);
     if($execute == 1){
@@ -249,7 +250,7 @@ if(isset($_POST['btn-simpan'])){
 
 
 require'layout_header.php';
-?> 
+?>
 <div class="container-fluid">
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -289,6 +290,15 @@ require'layout_header.php';
                         <select name="jenis_kelamin" class="form-control">
                             <option value="Laki-laki" <?php if($edit['jenis_kelamin']  == 'Laki-laki'){echo "selected";} ?>>Laki-laki</option>
                             <option value="Perempuan" <?php if($edit['jenis_kelamin']  == 'Perempuan'){echo "selected";} ?>>Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select name="kategori" class="form-control">
+                            <option value="peserta" <?php if($edit['kategori']  == 'peserta'){echo "selected";} ?>>Peserta</option>
+                            <option value="pinkon" <?php if($edit['kategori']  == 'pinkon'){echo "selected";} ?>>Pinkon</option>
+                            <option value="staff" <?php if($edit['kategori']  == 'staff'){echo "selected";} ?>>Staff Pinkon</option>
+                            <option value="bindam" <?php if($edit['kategori']  == 'bindam'){echo "selected";} ?>>Bindamping</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -344,4 +354,4 @@ require'layout_header.php';
 </div>
 <?php
 require'layout_footer.php';
-?> 
+?>

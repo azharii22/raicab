@@ -117,6 +117,7 @@ CREATE TABLE `pendaftar` (
   `id_pendaftar` int NOT NULL,
   `nama_lengkap` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `jenis_kelamin` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `kategori` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `tempat_lahir` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `no_hp` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
@@ -127,16 +128,17 @@ CREATE TABLE `pendaftar` (
   `ket_dokter` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
   `kta` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
   `biodata` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
-  `bukti_bayar` varchar(256) COLLATE utf8mb4_general_ci NOT NULL
+  `bukti_bayar` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pendaftar`
 --
 
-INSERT INTO `pendaftar` (`id_pendaftar`, `nama_lengkap`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `email`, `foto`, `vaksin`, `asuransi`, `ket_dokter`, `kta`, `biodata`, `bukti_bayar`) VALUES
-(2, 'saripudin', 'Laki-laki', 'subang', '2023-09-07', '2147483647', 'kelvin.203040062@mail.unpas.ac.id', '65096a628a5f4.png', '65096a628a801.png', '65096a628a9a7.png', '65096a628ab4b.png', '65096a628ad0e.png', '65096a628ebc3.png', '65096a628edc7.png'),
-(8, 'maman suherman', 'Laki-laki', 'TASIK', '2023-09-20', '085726661822', 'maman@icloud.com', '650a62f50c50f.jpg', '650a62f50c7ca.jpg', '650a62f50c9be.jpg', '650a62f50cc9c.jpg', '650a62f50ce9b.jpg', '650a62f50d087.jpg', '650a62f50d254.jpg');
+INSERT INTO `pendaftar` (`id_pendaftar`, `nama_lengkap`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `email`, `foto`, `vaksin`, `asuransi`, `ket_dokter`, `kta`, `biodata`, `bukti_bayar`, `user_id`) VALUES
+(2, 'saripudin', 'Laki-laki', 'subang', '2023-09-07', '2147483647', 'kelvin.203040062@mail.unpas.ac.id', '65096a628a5f4.png', '65096a628a801.png', '65096a628a9a7.png', '65096a628ab4b.png', '65096a628ad0e.png', '65096a628ebc3.png', '65096a628edc7.png', 19),
+(8, 'maman suherman', 'Laki-laki', 'TASIK', '2023-09-20', '085726661822', 'maman@icloud.com', '650a62f50c50f.jpg', '650a62f50c7ca.jpg', '650a62f50c9be.jpg', '650a62f50cc9c.jpg', '650a62f50ce9b.jpg', '650a62f50d087.jpg', '650a62f50d254.jpg', 19);
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,8 @@ ALTER TABLE `paket`
 -- Indexes for table `pendaftar`
 --
 ALTER TABLE `pendaftar`
-  ADD PRIMARY KEY (`id_pendaftar`);
+  ADD PRIMARY KEY (`id_pendaftar`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `transaksi`
@@ -320,6 +323,9 @@ ALTER TABLE `transaksi`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`outlet_id`) REFERENCES `outlet` (`id_outlet`);
+
+ALTER TABLE `pendaftar`
+ADD CONSTRAINT `pendaftar_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -5,9 +5,10 @@ require 'layout_header.php';
 $jTransaksi = ambilsatubaris($conn,'SELECT COUNT(id_transaksi) as jumlahtransaksi FROM transaksi');
 $jPelanggan = ambilsatubaris($conn,'SELECT COUNT(id_member) as jumlahmember FROM member');
 $joutlet = ambilsatubaris($conn,'SELECT COUNT(id_outlet) as jumlahoutlet FROM outlet');
-$query = 'SELECT * FROM pendaftar';
+$query = 'SELECT pendaftar.*, user.nama_user FROM pendaftar
+          LEFT JOIN user ON pendaftar.user_id = user.id_user';
 $data = ambildata($conn,$query);
-?> 
+?>
 <div class="container-fluid">
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -46,6 +47,7 @@ $data = ambildata($conn,$query);
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th> Kwarran </th>
                                 <th>Nama Pendaftar</th>
                                 <th>Email</th>
                                 <th>No Telepon</th>
@@ -56,6 +58,7 @@ $data = ambildata($conn,$query);
                             <?php $no=1; foreach($data as $pendaftar): ?>
                                 <tr>
                                     <td><?= $no++ ?></td>
+                                    <td><?= htmlspecialchars($pendaftar['nama_user']); ?></td>
                                     <td><?= htmlspecialchars($pendaftar['nama_lengkap']); ?></td>
                                     <td><?= htmlspecialchars($pendaftar['email']); ?></td>
                                     <td><?= htmlspecialchars($pendaftar['no_hp']); ?></td>
@@ -73,4 +76,4 @@ $data = ambildata($conn,$query);
 </div>
 <?php
 require 'layout_footer.php';
-?> 
+?>

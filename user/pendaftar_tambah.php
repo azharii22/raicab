@@ -1,6 +1,14 @@
 <?php
+session_start();
 $title = 'pendaftar';
 require'functions.php';
+
+// Pastikan pengguna sudah login sebelum mengakses halaman ini
+if (!isset($_SESSION['user_id'])) {
+    // Redirect pengguna ke halaman login jika belum login
+    header('location:../index.php');
+    exit();
+}
 
 if(isset($_POST['btn-simpan'])){
     $nama_lengkap   = $_POST['nama_lengkap'];
@@ -10,6 +18,7 @@ if(isset($_POST['btn-simpan'])){
     $tanggal_lahir  = $_POST['tanggal_lahir'];
     $no_hp          = $_POST['no_hp'];
     $email          = $_POST['email'];
+    $user_id = $_SESSION['user_id'];
 
     $foto  = $_FILES['foto'];
     $namaFile = $_FILES['foto']['name'];
@@ -29,7 +38,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -42,7 +51,7 @@ if(isset($_POST['btn-simpan'])){
 
         $foto = $filePath;
     }
-    
+
     $vaksin  = $_FILES['vaksin'];
     $namaFile = $_FILES['vaksin']['name'];
     if ($vaksin == '' || $_FILES['vaksin']['tmp_name'] == ''){
@@ -61,7 +70,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -93,7 +102,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -124,7 +133,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -155,7 +164,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -186,7 +195,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -217,7 +226,7 @@ if(isset($_POST['btn-simpan'])){
         echo "
 		<script>
 		alert('data yang anda masukan bukan merupakan gambar');
-	
+
 		</script>
 		";
         exit();
@@ -231,7 +240,7 @@ if(isset($_POST['btn-simpan'])){
         $bukti_bayar = $filePath;
     }
 
-    $query = "INSERT INTO pendaftar (nama_lengkap, jenis_kelamin, kategori, tempat_lahir, tanggal_lahir, no_hp, email, foto, vaksin, asuransi, ket_dokter, kta,biodata, bukti_bayar) values ('$nama_lengkap','$jenis_kelamin','$kategori','$tempat_lahir','$tanggal_lahir', '$no_hp', '$email', '$foto', '$vaksin', '$asuransi', '$ket_dokter', '$kta', '$biodata', '$bukti_bayar')";
+    $query = "INSERT INTO pendaftar (nama_lengkap, jenis_kelamin, kategori, tempat_lahir, tanggal_lahir, no_hp, email, foto, vaksin, asuransi, ket_dokter, kta,biodata, bukti_bayar, user_id) values ('$nama_lengkap','$jenis_kelamin','$kategori','$tempat_lahir','$tanggal_lahir', '$no_hp', '$email', '$foto', '$vaksin', '$asuransi', '$ket_dokter', '$kta', '$biodata', '$bukti_bayar', '$user_id')";
 
     // var_dump($query);
     // die;
@@ -250,7 +259,7 @@ if(isset($_POST['btn-simpan'])){
 
 
 require'layout_header.php';
-?> 
+?>
 <div class="container-fluid">
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -357,4 +366,4 @@ require'layout_header.php';
 </div>
 <?php
 require'layout_footer.php';
-?> 
+?>
