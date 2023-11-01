@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $title = 'pendaftar';
 require'functions.php';
 
