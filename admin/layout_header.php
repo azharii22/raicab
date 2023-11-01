@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/plugins/images/favicon.png">
-    <title>Aplikasi Pendaftaran Pramuka</title>
+    <title>Pendaftaran Raimuna Cabang XVII Kabupaten Bandung</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -97,10 +97,10 @@
                         <a href="index.php" class="waves-effect <?php if($title=='dashboard'){echo 'active';} ?>"><i class="fa fa-tachometer fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="pengguna.php" class="waves-effect <?php if($title=='pengguna'){echo 'active';} ?>"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Pengguna</a>
+                        <a href="pengguna.php" class="waves-effect <?php if($title=='pengguna'){echo 'active';} ?>"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Data DKR</a>
                     </li>
                     <li>
-                        <a href="pendaftar.php" class="waves-effect <?php if($title=='pendaftar'){echo 'active';} ?>"><i class="fa fa-users fa-fw" aria-hidden="true"></i> Pendaftar</a>
+                        <a href="pendaftar.php" class="waves-effect <?php if($title=='pendaftar'){echo 'active';} ?>"><i class="fa fa-users fa-fw" aria-hidden="true"></i> Data Peserta</a>
                     </li>
                 </ul>
                 <div class="center p-20">

@@ -47,7 +47,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['foto']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['foto']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $foto = $filePath;
     }
@@ -79,7 +79,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['vaksin']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['vaksin']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $vaksin = $filePath;
     }
@@ -111,7 +111,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['asuransi']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['asuransi']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $asuransi = $filePath;
     }
@@ -142,7 +142,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['ket_dokter']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['ket_dokter']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $ket_dokter = $filePath;
     }
@@ -173,7 +173,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['kta']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['kta']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $kta = $filePath;
     }
@@ -204,7 +204,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['biodata']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['biodata']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $biodata = $filePath;
     }
@@ -235,7 +235,7 @@ if(isset($_POST['btn-simpan'])){
         $filePath .= '.';
         $filePath .= $ekstensi;
 
-        move_uploaded_file($_FILES['bukti_bayar']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicabkabbdg/assets/img/' . $filePath);
+        move_uploaded_file($_FILES['bukti_bayar']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/raicab/assets/img/' . $filePath);
 
         $bukti_bayar = $filePath;
     }
